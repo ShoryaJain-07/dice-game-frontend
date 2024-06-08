@@ -33,12 +33,14 @@ const play = () => {
     } else {
         setError("")
       try{
-        const res = await axios
-        .post("http://localhost:3001/roll-dice", {
-          betAmount: parseInt(bet),
-          betOption: option,
-          playerPoints: points,
-        })
+        const res = await axios.post(
+          "https://dice-game-backend-two.vercel.app/roll-dice",
+          {
+            betAmount: parseInt(bet),
+            betOption: option,
+            playerPoints: points,
+          }
+        );
         
           setDice1(res.data.number1);
           setDice2(res.data.number2);
